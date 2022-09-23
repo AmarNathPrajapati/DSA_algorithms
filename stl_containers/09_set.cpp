@@ -18,6 +18,9 @@ int main(){
     s.insert(8);
     s.insert(8);
     s.insert(9);
+    s.insert(10);
+    s.insert(9);
+    s.insert(12);
     set<int>::iterator it;
     it = s.find(9);
     if(it != s.end()){

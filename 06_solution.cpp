@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-void printArray(vector<int> &v){
+void printArray(auto &v){
     for (auto &val : v)
     {
         cout << val << " ";
@@ -21,15 +21,13 @@ int main(){
 
     cout<<"actual array "<<endl;
     printArray(v);
-    vector<int>::iterator iter1 = v.begin();//pointing first element.
-    vector<int>::iterator iter2 = v.begin()+1;//pointing last element.
-    vector<int>::iterator end = v.end()-1;//pointing last element.
-    while((iter1 < end) || (iter2<end)){
-        swap(*iter1,*iter2);
-        iter1+=2;
-        iter2+=2;
+    unordered_set<int> u;
+    for (int i = 0; i < size; i++)
+    {
+        u.insert(v[i]);
     }
-    cout<<endl<<"Desired Array "<<endl;
-    printArray(v);
+    cout<<endl<<"Unique Number"<<endl;
+    printArray(u);
+    
 return 0;
 }

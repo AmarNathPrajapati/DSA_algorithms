@@ -1,31 +1,38 @@
-#include<iostream>
-#include<unordered_map>
+#include <bits/stdc++.h>
 using namespace std;
-// if there is comparision and frequency in question, then you must the map or unordered map.
-int main(){
-    unordered_map<string,int> m;
-    int n;
-    cout<<"Enter the number of string"<<endl;
-    cin>>n;
-    for (int i = 0; i < n; i++)
+
+void printArray(vector<int> &v){
+    for (auto &val : v)
     {
-        cout<<"Enter String "<<i+1;
-        string s;
-        cin>>s;
-        // m[s];//declaring key in map, to print in lexical order
-        //for frequency
-        m[s]+=1;//if same string again come
+        cout << val << " ";
     }
-    cout<<"Enter the number of query"<<endl;
-    int q;
-    cin>>q;
-    for (int i = 0; i < q; i++)
+}
+int main()
+{
+    vector<int> v;
+    cout << "Enter the size of vector " << endl;
+    int size;
+    cin >> size;
+    for (int i = 0; i < size; i++)
     {
-        cout<<"Enter the string"<<endl;
-        string s;
-        cin>>s;
-        cout<<m[s];
+        cout << "Enter the " << i + 1 << " element" << endl;
+        int num;
+        cin >> num;
+        v.push_back(num);
     }
-    
-return 0;
+    cout<<"actual string "<<endl;
+    printArray(v);
+    cout <<endl<< "Reversing the string....." << endl;
+    vector<int>::iterator iter1 = v.begin();//pointing first element.
+    vector<int>::iterator iter2 = v.end()-1;//pointing last element
+    while (iter1 < iter2)
+    {
+        swap(*iter1, *iter2);
+        iter1++;
+        iter2--;
+    }
+    cout << "Reversed String" << endl;
+    printArray(v);
+
+    return 0;
 }
