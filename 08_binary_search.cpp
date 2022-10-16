@@ -3,27 +3,27 @@ using namespace std;
 
 int binarySearch(vector<int> &v, int num)
 {
-    int low = 0;
-    int high = v.size() - 1;
-    while (low <= high)
+    int s = 0;
+    int e = v.size() - 1;
+    while (s <= e)
     {
-        // int mid = (low + high) / 2;
+        // int mid = (s + e) / 2;
         /* let's optimise and secure the binary search
-        if mid and high are equal to 2^30 then sumation may excee  the limit then use this formula for 
+        if mid and e are equal to 2^30 then sumation may excee  the limit then use this formula for 
         calculation of the mid
         */
-        int mid = low + (high-low)/2;
+        int mid = s + (e-s)/2;
         if (v[mid] == num)
         {
             return mid;
         }
         else if (v[mid] > num)
         {
-            high = mid - 1;
+            e = mid - 1;
         }
         else
         {
-            low = mid + 1;
+            s = mid + 1;
         }
     }
     return -1;
