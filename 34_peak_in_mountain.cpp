@@ -1,21 +1,22 @@
-//best solution
+//element should be greater than 3
 #include<bits/stdc++.h>
 using namespace std;
-int findPeak(vector<int> &v){
-    //using binary search
+int peakMountain(vector<int>&v){
     int s = 0;
     int e = v.size()-1;
-    int mid = s + (e-s)/2;
-    while (s<e)
+    int mid = s+ (e-s)/2;
+    while (s<=e)
     {
-        if(v[mid]<v[mid+1]){
+        if(v[mid]>v[mid+1] && v[mid]>v[mid-1]){
+            return mid;
+        }else if(v[mid]<v[mid+1]){
             s = mid +1;
-        }else{
-            e = mid;
+        }else if(v[mid]>v[mid+1]){
+            e = mid -1;
         }
         mid = s + (e-s)/2;
     }
-    return s;
+    return -1;
 }
 int main(){
     int size;
@@ -28,7 +29,7 @@ int main(){
         cin>>num;
         v.push_back(num);
     }
-    int peak = findPeak(v);
-    cout<<"peak value is "<<v[peak]<<endl;
+    int peak = peakMountain(v);
+    cout<<"The peak value is "<<v[peak]<<endl;
 return 0;
 }

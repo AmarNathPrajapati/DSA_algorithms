@@ -1,15 +1,13 @@
-//best solution
 #include<bits/stdc++.h>
 using namespace std;
-int findPeak(vector<int> &v){
-    //using binary search
+int findPivot(vector<int> &v){
     int s = 0;
-    int e = v.size()-1;
+    int e = v.size() -1;
     int mid = s + (e-s)/2;
     while (s<e)
     {
-        if(v[mid]<v[mid+1]){
-            s = mid +1;
+        if(v[mid]>v[0]){
+            s = mid + 1;
         }else{
             e = mid;
         }
@@ -28,7 +26,8 @@ int main(){
         cin>>num;
         v.push_back(num);
     }
-    int peak = findPeak(v);
-    cout<<"peak value is "<<v[peak]<<endl;
+    int pivot = findPivot(v);
+    cout<<"The index of pivot element is "<<pivot<<" and the pivot value is "<<v[pivot]<<endl;
+
 return 0;
 }
