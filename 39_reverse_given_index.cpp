@@ -7,9 +7,9 @@ void printArray(vector<int> &v){
         cout << val << " ";
     }
 }
-void reversingArray(vector<int> &v){
+void reversingArray(vector<int> &v,int index){
     cout <<endl<< "Reversing the string....." << endl;
-    vector<int>::iterator iter1 = v.begin();//pointing first element.
+    vector<int>::iterator iter1 = v.begin()+index;//pointing first element.
     vector<int>::iterator iter2 = v.end()-1;//pointing last element
     while (iter1 < iter2)
     {
@@ -33,8 +33,13 @@ int main()
     }
     cout<<"actual string "<<endl;
     printArray(v);
-    reversingArray(v);
+    cout<<endl;
+    int index;
+    cout<<"Enter the index"<<endl;
+    cin>>index;
+    reversingArray(v,index);
     cout << "Reversed String" << endl;
     printArray(v);
+    cout<<endl;
     return 0;
 }

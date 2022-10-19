@@ -1,6 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+void printArray(vector<int> &v){
+    for (auto &val : v)
+    {
+        cout << val << " ";
+    }
+}
 int main(){
     int size;
     cout<<"Enter the size of vector"<<endl;
