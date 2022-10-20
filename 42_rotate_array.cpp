@@ -5,7 +5,16 @@ void printArray(vector<int> &v){
     {
         cout << val << " ";
     }
-    cout<<endl;
+}
+void rotateArray(vector<int> &v, int index){
+    // if actual array is changed then, may be answer will wrong.
+    int size = v.size();
+    vector<int>temp(size);
+    for (int i = 0; i <size; i++)
+    {
+        temp[(i+index)%size]= v[i];
+    }
+    v = temp;
 }
 int main(){
     int size;
@@ -18,6 +27,12 @@ int main(){
         cin>>num;
         v.push_back(num);
     }
+    printArray(v);
+    cout<<"Enter the index "<<endl;
+    int index;
+    cin>>index;
+    //rotate() learn
+    rotateArray(v,index);
     printArray(v);
 return 0;
 }
