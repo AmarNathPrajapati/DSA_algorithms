@@ -13,7 +13,6 @@ char convertLowercase(char ch)
 }
 bool checkPalindrome(string s)
 {
-    bool ans = true;
     int i = 0;
     int j = s.length() - 1;
     while (i <= j)
@@ -28,10 +27,25 @@ bool checkPalindrome(string s)
         }
         if (convertLowercase(s[i]) != convertLowercase(s[j]))
         {
-            ans = false;
+            return 0;
         }
         i++;
         j--;
     }
-    return ans;
+    return 1;
+}
+int main()
+{
+    cout << "Enter the string" << endl;
+    string str;
+    cin >> str;
+    if (checkPalindrome(str))
+    {
+        cout << "String is palindrome" << endl;
+    }
+    else
+    {
+        cout << "String is not a palindrome" << endl;
+    }
+    return 0;
 }
