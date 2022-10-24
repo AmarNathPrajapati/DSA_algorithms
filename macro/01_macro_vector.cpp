@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-void printArray(vector<int> &v){
+void printArray(auto &v){
     for (auto &val : v)
     {
         cout << val << " ";
