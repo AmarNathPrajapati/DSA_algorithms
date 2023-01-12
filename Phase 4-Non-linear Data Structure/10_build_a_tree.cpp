@@ -77,13 +77,46 @@ void beautifiedLevelOrderTraversal(Node*root){
     }
 
 }
+void buildTreeLOT(Node* &root){
+    cout<<"Creating tree using level order traversal......"<<endl;
+    queue<Node*> q;
+    cout<<"Enter the data"<<endl;
+    int data;
+    cin>>data;
+    root = new Node(data);
+    //push first element in the root
+    q.push(root);
+    while(!q.empty()){
+        Node*temp = q.front();
+        q.pop();
+        cout<<"Enter the left data for "<<temp->data<<endl;
+        int leftData;
+        cin>>leftData;
+        if(leftData!=-1){
+            temp->left = new Node(leftData);
+            q.push(temp->left);
+        }
+        cout<<"Enter the right data for "<<temp->data<<endl;
+        int rightData;
+        cin>>rightData;
+        if(rightData!=-1){
+            temp->right = new Node(rightData);
+            q.push(temp->right);
+        }
+    }
+    
+}
 // 1 2 4 -1 -1 5 -1 -1 3 -1 -1
 //Implementing the level order traversal 
 int main(){
     Node *root = NULL;
-    root = buildTree(root);
+    // root = buildTree(root);
+    // levelOrderTraversal(root);
+    // cout<<endl;
+    // beautifiedLevelOrderTraversal(root);
+    buildTreeLOT(root);
     levelOrderTraversal(root);
-    cout<<endl;
     beautifiedLevelOrderTraversal(root);
+
 return 0;
 }
