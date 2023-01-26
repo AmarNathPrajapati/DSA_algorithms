@@ -1,0 +1,27 @@
+// build a min heap using zero based indexing 
+#include <bits/stdc++.h> 
+void heapify(vector<int> &arr, int size,int i){
+    int smallest = i;
+    int left = 2*i + 1;
+    int right = 2*i +2;
+    if(left<size && arr[smallest]>arr[left]){
+        smallest = left;
+    }
+    if(right<size && arr[smallest]>arr[right]){
+        smallest = right;
+    }
+    if(smallest != i){
+        swap(arr[smallest],arr[i]);
+        heapify(arr,size,smallest);
+    }
+}
+vector<int> buildMinHeap(vector<int> &arr)
+{
+    // Write your code here
+    int size = arr.size();
+    int i = 0;
+    for(int i =size/2-1; i>=0; i--){
+        heapify(arr, size, i);
+    }
+    return arr;
+}
