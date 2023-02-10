@@ -1,6 +1,8 @@
 //{ Driver Code Starts
-#include <bits/stdc++.h>
-using namespace std;
+//Initial Template for C++
+
+#include<bits/stdc++.h> 
+using namespace std; 
 
 // Tree Node
 struct Node
@@ -9,6 +11,7 @@ struct Node
     Node* left;
     Node* right;
 };
+
 // Utility function to create a new Tree Node
 Node* newNode(int val)
 {
@@ -37,7 +40,7 @@ Node* buildTree(string str)
         
     // Create the root of the tree
     Node* root = newNode(stoi(ip[0]));
-          
+        
     // Push the root to the queue
     queue<Node*> queue;
     queue.push(root);
@@ -84,84 +87,58 @@ Node* buildTree(string str)
     return root;
 }
 
-// Function for Inorder Traversal
-void printInorder(Node* root)
-{
-    if(!root)
-        return;
-        
-    printInorder(root->left);
-    cout<<root->data<<" ";
-    printInorder(root->right);
-}
-
 
 // } Driver Code Ends
-class Solution
+//User function Template for C++
+
+//Node Structure
+/*
+struct Node
 {
-    public:
-    //Function to find the vertical order traversal of Binary Tree.
-    vector<int> verticalOrder(Node *root)
-    {
-        //Your code here
-        //map<horizontal distance, map<level, list of nodes>>
-        map<int,map<int,vector<int>>> nodes;
-        // queue is for pushing content for list of nodes
-        queue<pair<Node*,pair<int,int>>> q;
-        vector<int> ans;
+    int data;
+    Node* left;
+    Node* right;
+};
+*/
+
+class Solution{
+  public:
+    //Function to return the maximum sum of non-adjacent nodes.
+    pair<int, int> solve(Node*root){
         if(root==NULL){
-            return ans;
+            pair<int,int> p  = make_pair(0,0);
+            return p;
         }
-        q.push(make_pair(root,make_pair(0,0)));
-        while(!q.empty()){
-            pair<Node*,pair<int,int>> temp= q.front();
-            q.pop();
-            Node* frontNode = temp.first;
-            int hd = temp.second.first;
-            int level = temp.second.second;
-            nodes[hd][level].push_back(frontNode->data);
-            if(frontNode->left){
-                q.push(make_pair(frontNode->left,make_pair(hd-1,level+1)));
-            }
-            if(frontNode->right){
-                q.push(make_pair(frontNode->right,make_pair(hd+1,level+1)));
-            }
-        }
-        for(auto i: nodes){
-            for(auto j: i.second){
-                for(auto k: j.second){
-                    ans.push_back(k);
-                }
-            }
-        }
-        return ans;
+        pair<int, int> left = solve(root->left);
+        pair<int, int> right = solve(root->right);
+        pair<int,int> res;
+        res.first = root->data + left.second + right.second;
+        res.second = max(left.first, left.second) + max(right.first ,right.second);
+        return res;
+    }
+    int getMaxSum(Node *root) 
+    {
+        // Add your code here
+        pair<int, int > ans = solve (root);
+        return max(ans.first, ans.second);
     }
 };
 
-
-
 //{ Driver Code Starts.
-int main() {
-    int t;
-    string  tc;
-    getline(cin,tc);
-    t=stoi(tc);
-    while(t--)
-    {
+
+// Driver code 
+int main()
+{
+  int t;
+  scanf("%d ",&t);
+  while (t--)
+  {
         string s;
-        getline(cin,s);
-        // string c;
-        // getline(cin,c);
-        Solution obj;
-    	Node* root = buildTree(s);
-    	
-    	vector <int> res = obj.verticalOrder(root);
-    	for (int i : res) cout << i << " ";
-        cout << endl;
-    }
-	return 0;
+		getline(cin,s);
+		Node* root = buildTree(s);
+		Solution ob;
+        cout<<ob.getMaxSum(root)<<endl;
+  }
+  return 0;
 }
-
-
-
 // } Driver Code Ends
