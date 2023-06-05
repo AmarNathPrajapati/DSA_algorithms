@@ -1,3 +1,4 @@
+//              Amar Nath Prajapati                       Roll No. 12011051
 #include<bits/stdc++.h>
 using namespace std;
 // s4: Perfrom DFS traversal.
@@ -11,14 +12,14 @@ vector<int>&component,int node){
         }
     }
 }
-vector<vector<int>> depthFirstSearch(int V, int E, vector<vector<int>> &edges)
+vector<vector<int>> depthFirstSearch(int V, vector<pair<int,int>> &edges)
 {
     // Write your code here
     // s1: prepare the adacency list
     unordered_map<int,list<int>>adj;
     for(int i = 0; i<edges.size();i++){
-        int u = edges[i][0];
-        int v = edges[i][1];
+        int u = edges[i].first;
+        int v = edges[i].second;
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
@@ -35,4 +36,38 @@ vector<vector<int>> depthFirstSearch(int V, int E, vector<vector<int>> &edges)
         }
     }
     return ans;
+}
+int main(){
+    cout<<"Enter your name"<<endl;
+    string name;
+    cin>>name;
+    cout<<"Enter the roll No."<<endl;
+    long long int rollNo;
+    cin>> rollNo;
+
+    cout <<"Let's Start DFS...."<<endl;
+    cout<<endl;
+    cout<<endl;
+    int vertex;
+    cout<<"Enter the number of the vertex "<<endl;
+    cin>>vertex;
+    cout<<"Enter the number of the edges "<<endl;
+    int edge;
+    cin>>edge;
+    vector<pair<int,int>>edges;
+    for(int i = 0; i<edge; i++){
+        pair<int,int>p;
+        cout<<"Enter the edges pair: ";
+        cin>>p.first;
+        cin>>p.second;
+        edges.push_back(p);
+    }
+    vector<vector<int>> DFStraversal = depthFirstSearch(vertex, edges);
+    cout<<"DFS Traversal: ";
+    for(auto val: DFStraversal){
+        for(auto node: val){
+            cout<<node<<" ";
+        }
+    }
+    cout<<endl;
 }
