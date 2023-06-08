@@ -9,7 +9,7 @@ int main(){
     {
         s.erase(s.find("abc"),3);
     }
-    cout<<s;
+    cout<<s;    
     
 return 0;
 }

@@ -4,8 +4,8 @@ using namespace std;
 int main(){
     char carr[5] = "avac"  ;
     char *cptr = &carr[0];
-    cout<<"carr: "<<carr<<endl;//no address
-    cout<<"cptr: "<<cptr<<endl;//no address
+    cout<<"carr: "<<carr<<endl;//no address give entire string
+    cout<<"cptr: "<<cptr<<endl;//no address give entire string
     cout<<"Hence: cout implementation is different for int and char pointer"<<endl;
     char ch = 'z';
     cptr = &ch;

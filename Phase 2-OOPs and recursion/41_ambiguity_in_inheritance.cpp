@@ -18,11 +18,15 @@ class Programmer{
 class JSDeveloper : public Programmer, public Person{
     public:
         string level;
+        void speakSlogan(){
+            cout<<"I am JSDeveloper"<<endl;
+        }
 };
 int main(){
     JSDeveloper chandan;
     chandan.level = "Intermediate";
     chandan.Programmer::speakSlogan();
     chandan.Person::speakSlogan();
+    chandan.speakSlogan();
 return 0;
 }
