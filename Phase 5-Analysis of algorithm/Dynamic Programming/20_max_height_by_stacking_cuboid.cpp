@@ -15,7 +15,7 @@ public:
                 //include
                 int take = 0;
                 if(prev == -1 || check(a[curr],a[prev])){
-                    take = a[curr][2] + nextv[curr+1];
+                    take = a[curr][2] + nextv[curr+1];//calculating maximum heights
                 }
                 //exclude
                 int nonTake = 0 + nextv[prev+1];
@@ -27,7 +27,7 @@ public:
     }
     int maxHeight(vector<vector<int>>& cuboids) {
     //step 1: sort all the dimention for every cuboid
-    for(auto &a: cuboids){
+    for(auto &a: cuboids){//for actual change in vectors use the & operator.
         sort(a.begin(),a.end());
     }
     //step 2: sort all cuboids basis on w or l

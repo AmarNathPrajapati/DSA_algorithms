@@ -40,7 +40,7 @@ public:
         //push data
         arr[index] = x;
         //update next index;
-        next[index] = top[m-1];
+        next[index] = top[m-1];//old stack pointer
         //update top
         top[m-1] = index;
         return true;
@@ -54,7 +54,8 @@ public:
         if(top[m-1]==-1){
             return -1;
         }
-        int index = top[m-1];
+        //basically it is reverse direction of the push process.
+        int index = top[m-1];//
         top[m-1] = next[index];
         next[index] = freespot;
         freespot = index;

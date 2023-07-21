@@ -65,6 +65,7 @@ void mergeSort(int arr[], int s , int e){
     //merge
     mergeArr(arr,s,e);
 }
+
 int main(){
     int arr[5] = {3,4,1,2,5};
     int size = sizeof(arr)/sizeof(int);

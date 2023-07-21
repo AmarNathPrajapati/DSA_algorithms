@@ -36,7 +36,7 @@ Node<int>* solve(Node<int>* first, Node<int>* second){
     while((next1 != NULL) && (curr2 != NULL)){
        if((curr2->data>= curr1->data) && (curr2->data <= next1->data)){
             curr1->next = curr2;
-            next2 = curr2->next;
+            next2 = curr2->next;//secure curr2->next before changing curr2->next
             curr2->next = next1;
             
             

@@ -14,8 +14,8 @@ class Solution
         return prev;
     }
 void insertAtTail(struct Node* &head,struct Node* &tail, int val){
-    Node *temp = new Node(val);
-    if(head==NULL){
+    Node *temp = new Node(val);//node for the answer digit
+    if(head==NULL){//for the first digit.
         head = temp;
         tail = temp;
         return;
@@ -23,7 +23,6 @@ void insertAtTail(struct Node* &head,struct Node* &tail, int val){
         tail ->next = temp;
         tail = temp;
     }
-    
 }
 struct Node* add(struct Node *first ,struct  Node *second){
     Node *ansHead = NULL;

@@ -148,3 +148,33 @@ int main() {
     return 0;
 }
 // } Driver Code Ends
+
+void solve(BinaryTreeNode<int> *root,int k, vector<vector<int>>&ans,vector<int>path){
+    if(root==NULL){
+        return ;
+    }
+    path.push_back(root->data);
+    solve(root->left,k,ans,path);
+    solve(root->right,k,ans,path);
+    int size = path.size();
+    int sum = 0;
+    vector<int>temp;
+    for(int i = size-1; i>=0; i--){
+        sum+=path[i];
+        temp.push_back(path[i]);
+        if(sum==k){
+            reverse(temp.begin(),temp.end());
+            ans.push_back(temp);
+            path.pop_back();
+        }
+    }
+}
+vector<vector<int>> kPathSum(BinaryTreeNode<int> *root, int k) {
+    // Write your code here.
+    // recursive approach
+    vector<vector<int>>ans;
+    vector<int>path;
+    solve(root,k,ans,path);
+    return ans;
+
+}

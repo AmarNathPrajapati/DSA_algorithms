@@ -112,8 +112,8 @@ class Solution{
         pair<int, int> left = solve(root->left);
         pair<int, int> right = solve(root->right);
         pair<int,int> res;
-        res.first = root->data + left.second + right.second;
-        res.second = max(left.first, left.second) + max(right.first ,right.second);
+        res.first = root->data + left.second + right.second;//including the root->data (to perform alternate operations)
+        res.second = max(left.first, left.second) + max(right.first ,right.second);//excluding the root->data
         return res;
     }
     int getMaxSum(Node *root) 

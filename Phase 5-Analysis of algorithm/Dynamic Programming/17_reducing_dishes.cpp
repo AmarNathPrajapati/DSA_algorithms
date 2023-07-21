@@ -3,7 +3,7 @@ using namespace std;
 class Solution {
 public:
     int solve(vector<int>& sat,int index, int time){
-        if(index == sat.size()){
+        if(index == sat.size()){//all diishes are covered
             return 0;
         }
         int inc = sat[index]*(time+1) + solve(sat,index+1,time+1);

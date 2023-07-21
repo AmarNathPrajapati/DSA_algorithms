@@ -24,19 +24,19 @@ vector<int> mergeKSortedArrays(vector<vector<int>>&kArrays, int k)
     priority_queue<node*,vector<node*>,compare>minHeap;
     // s3: push first element each array
     for(int i = 0; i<k; i++){
-        node*temp = new node (kArrays[i][0],i,0);
+        node*temp = new node (kArrays[i][0],i,0);//data row and column
         minHeap.push(temp);
     }
     // s4: push all element in the answer vector
     vector<int>ans;
     while(minHeap.size()>0){
-        node*temp = minHeap.top();
+        node*temp = minHeap.top();//min heap ke top par hamesa minimum hee hota hai, so it store in sorted ways.
         ans.push_back(temp->data);
         minHeap.pop();
           // s5: if next element present the push in the heap
         int i = temp->i;
         int j = temp->j;
-        if(j+1<kArrays[i].size()){
+        if(j+1<kArrays[i].size()){//next element us particular array me present hai ya nahi, if j+1(greater) there is no element.
             node*next = new node(kArrays[i][j+1],i,j+1);
             minHeap.push(next);
         }

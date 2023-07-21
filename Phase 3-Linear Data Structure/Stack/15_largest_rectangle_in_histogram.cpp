@@ -24,7 +24,7 @@ private:
             s.pop();
         }
         ans[i] = s.top();
-        s.push(i);
+        s.push(i);//here index is stored
     }
     return ans;
     }
@@ -38,6 +38,7 @@ public:
         int area  = INT_MIN;
         for(int i = 0; i<n; i++){
             int l = heights[i];
+            //cover all length
             if(next[i]==-1){
                 next[i]=n;
             }

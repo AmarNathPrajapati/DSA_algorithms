@@ -4,8 +4,8 @@ class TrieNode{
     public:
         char data;
         TrieNode* children[26];
-        int childCount;
-        bool isTerminal;
+        int childCount;//use to search the prefix.
+        bool isTerminal;//use to search the element.
         TrieNode(char ch){
             this->data = ch;
             for(int i = 0; i<26; i++){
@@ -46,9 +46,9 @@ class Trie{
             for (int i = 0; i<str.length();i++){
                 char ch = str[i];
                 if(root->childCount==1){
-                    ans.push_back(ch);
+                    ans.push_back(ch);//prefix found
                     int index = ch-'a';
-                    root = root->children[index];
+                    root = root->children[index];//move ahead
                 }else{
                     break;
                 }
@@ -70,12 +70,13 @@ string longestCommonPrefix(vector<string> &arr, int n)
     return ans;
 }
 // Write your code here
-    //approach 1 accepted
+    //approach 1 accepted without help of trie.
     string ans = "";
     for(int i = 0; i<arr[0].length(); i++){
         char ch = arr[0][i];
         bool match = false;
         for(int j = 1; j<n; j++){//for next string
+            //if new string length is less than common prefirx or common string not match then return false.
             if(arr[j].size()<i || ch != arr[j][i]){
                 match = false;
                 break;
@@ -84,7 +85,7 @@ string longestCommonPrefix(vector<string> &arr, int n)
             }
         }
         if(match == false){
-            break;
+            break;//return the answer further common prefix is not available.
         }else{
             ans.push_back(ch);
         }

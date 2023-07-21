@@ -31,9 +31,12 @@ BinaryTreeNode<int>* solve(vector<int> &p, int min, int max, int &i){
     if(p[i]<min || p[i]>max){
         return NULL;
     }
+    //preorder --- root - left - right
     BinaryTreeNode<int>* root = new BinaryTreeNode<int> (p[i++]);
     root->left = solve(p,min,root->data,i);
     root->right = solve(p,root->data,max,i);
+    //if there is inorder --- left - root- right use concept of balanced bst
+    // and in postorder ---- left - right - root.
     return root;
 }
 BinaryTreeNode<int>* preorderToBST(vector<int> &preorder) {

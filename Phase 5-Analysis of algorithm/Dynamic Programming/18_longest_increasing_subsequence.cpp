@@ -10,12 +10,12 @@ class Solution
     public:
     //Function to find length of longest increasing subsequence.
     int solve(int n, int *a, int curr, int prev){
-        if(curr == n){
+        if(curr == n){//traversing complete 
             return 0;
         }
         //include
         int take = 0;
-        if(prev == -1 || a[curr]>a[prev]){
+        if(prev == -1 || a[curr]>a[prev]){//agar aage koi greater number available hai.
             take = 1 + solve(n,a,curr+1,curr);
         }
         //exclude

@@ -36,22 +36,23 @@ class Solution
 		{
 		    // Code here
 		    priority_queue<Node*, vector<Node*>, cmp>pq;
+			//pushing element in priority queue on the increasing order of their frequency.
 		    for(int i=0; i<N; i++){
 		        Node *temp = new Node(f[i]);
 		        pq.push(temp);
 		    }
 		    while(pq.size()>1){
-		        Node *left = pq.top();
+		        Node *left = pq.top();//first min
 		        pq.pop();
-		        Node *right = pq.top();
+		        Node *right = pq.top();//second min
 		        pq.pop();
-		        Node *newNode = new Node(left->data + right -> data);
+		        Node *newNode = new Node(left->data + right -> data);//create new node using first and second minimum
 		        newNode -> left = left;
 		        newNode -> right = right;
-		        pq.push(newNode);
+		        pq.push(newNode);//push new node into priority queue.
 		    }
-		Node*root = pq.top();
-		vector<string>ans;
+		Node*root = pq.top();//for finding the code of string
+		vector<string>ans;//store the code of string
 		string temp = "";
 		traverse(root,ans,temp);
 		return ans;

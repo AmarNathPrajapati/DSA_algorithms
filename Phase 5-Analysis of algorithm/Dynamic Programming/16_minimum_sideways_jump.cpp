@@ -2,16 +2,16 @@ class Solution {
 public:
     int solve(vector<int>& obs,int currlane, int currpos){
         int n = obs.size();
-        if(currpos == n){
+        if(currpos == n){//pahuch gaye return zero.
             return 0;
         }
-        if(obs[currpos+1] != currlane){
+        if(obs[currpos+1] != currlane){//rasta saaf hai. usi raste par aage badho.
             return solve(obs,currlane,currpos+1);
         }else{
             int ans = INT_MAX;
-            for(int i = 1 ; i<=3; i++){
-                if(currlane != i && obs[currpos] != i){
-                    ans = min(ans,1+solve(obs,i,currpos));
+            for(int i = 1 ; i<=3; i++){// 1 ,2,3 par hee check karenge.
+                if(currlane != i && obs[currpos] != i){//kis raste par pathar nahi hai.
+                    ans = min(ans,1+solve(obs,i,currpos));//calculating the number of the jump.
                 }
             }
             return ans;

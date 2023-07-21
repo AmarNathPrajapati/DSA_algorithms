@@ -23,16 +23,15 @@ int solve(BinaryTreeNode<int>* root, int &i, int k){
         return -1;
     }
     int left = solve(root->left, i, k);
-    if(left != -1){
-        return left;
+    if(left != -1){//it return the answer to further ancestor.
+        return left;//not -1 means it have a answer.
     }
-    i++;
-    if(i==k){
-        return root->data;
+    i++;//jf left -1 check further in right direction also.
+    if(i==k){//
+        return root->data;//kth minimum element was found.
     }
-    return solve(root->right,i,k);
+    return solve(root->right,i,k);//minimum ka just maximum element.
 }
-
 int kthSmallest(BinaryTreeNode<int>* root, int k) {
     // Write your code here.
     int i = 0;

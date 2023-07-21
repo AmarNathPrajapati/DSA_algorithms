@@ -13,9 +13,12 @@ int solve(int n, int k){
         return k;// with all different color
     }
     if(n==2){
+        //k*k-1 + k
         return add(k,mul(k,k-1));
     }
-    int ans = add(mul(solve(n-2,k),k-1),mul(k-1,solve(n-1,k)));
+    //formula for painting fence problem
+    // solve(n-2,k)*k-1 + solve(n-1,k)*k-1
+    int ans = add(mul(solve(n-2,k),k-1),mul(solve(n-1,k),k-1));
     return ans;
 }
 //adding memoization

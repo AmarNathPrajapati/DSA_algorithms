@@ -52,20 +52,18 @@ public:
         }
         // swaping the first to last actually we are deleting the root node
         arr[1] = arr[size];
-        size--;
+        size--;//node is deleted
         int i = 1;
         while (i < size)
         {
             int leftIndex = 2 * i;
             int rightIndex = 2 * i + 1;
-            if (arr[leftIndex] > arr[rightIndex])
+            if (arr[leftIndex] > arr[rightIndex])//left 
             {
-                // cout<<"inside if condition"<<endl;
                 if (leftIndex <= size && arr[i] < arr[leftIndex])
                 {
                     swap(arr[i], arr[leftIndex]);
                     i = leftIndex;
-                    // cout<<"swapLeft"<<endl;
                 }
                 else
                 {
@@ -74,12 +72,10 @@ public:
             }
             else
             {
-                // cout<<"inside else condition"<<endl;
                 if (rightIndex <= size && arr[i] < arr[rightIndex])
                 {
                     swap(arr[i], arr[rightIndex]);
                     i = rightIndex;
-                    // cout<<"swapright"<<endl;
                 }
                 else
                 {

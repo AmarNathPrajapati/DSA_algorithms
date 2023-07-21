@@ -49,18 +49,14 @@ int solveMem(int n, vector<int>&days, vector<int>&cost,int index,vector<int>&dp)
 int solveTab(int n, vector<int>days,vector<int>cost){
     vector<int>dp(n+1,INT_MAX);
     dp[n] = 0;
-    for(int  k= n-1; k>= 0; k--){
+    for(int  k= n-1; k>= 0; k--){//start from n so that there should not any problem to move ahead.
         int op1 = cost[0] + dp[k+1];
         int i;
         //7 day pass
         for(i =k; i<n && days[i]<days[k]+7;i++);
-
-
         int op2 = cost[1] + dp[i];
         //30 day pass
         for(i = k; i<n && days[i]<days[k]+30;i++);
-
-
         int op3 = cost[2] + dp[i];
         dp[k] = min(op1,min(op2,op3));
     }

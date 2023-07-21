@@ -2,19 +2,20 @@ class Solution {
 public:
     int solve(string &a, string &b, int i, int j){
         //base case
-        if(i == a.length()){
-            return b.length()-j;
+        if(i == a.length()){//first string ends(first string length is less than second string.)
+            return b.length()-j;//es length ka character insert karane se aa jayege.
         }
         if(j == b.length()){
             return a.length()-i;
         }
         int ans = 0; 
         if(a[i]==b[j]){
-            return solve(a,b,i+1,j+1);
+            return solve(a,b,i+1,j+1);//if matches then no problem
         }else{
-            int insAns = 1 + solve(a,b,i,j+1);
-            int delAns = 1 + solve(a,b,i+1,j);
-            int repAns = 1 + solve(a,b,i+1,j+1);
+            //increment to dono index hoga
+            int insAns = 1 + solve(a,b,i,j+1);//first me insert hua,uska index unchage hoga,because already increment.
+            int delAns = 1 + solve(a,b,i+1,j);//i increment but j at same position
+            int repAns = 1 + solve(a,b,i+1,j+1);//we assume that replace karane se match kar gaya then we move ahea.
             ans = min(insAns, min(delAns,repAns));
         }
         return ans;

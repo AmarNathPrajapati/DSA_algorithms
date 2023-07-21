@@ -1,4 +1,5 @@
 /******** 01 Medium*/
+//it's not a greedy approach.it check all combination of items 
 #include<bits/stdc++.h>
 using namespace std;
 int solve(vector<int> &values, vector<int> &weights, int index, int capacity){
@@ -44,6 +45,7 @@ vector<vector<int>>&dp){
 }
 // using the tabulation method
 int solveTab(vector<int> &values, vector<int> &weights, int n, int capacity){
+	
 	vector<vector<int>>dp(n,vector<int>(capacity+1,0));
 	for (int w = weights[0]; w<= capacity; w++){
 		if(weights[0]<=capacity){
@@ -81,7 +83,7 @@ int maxProfit(vector<int> &values, vector<int> &weights, int n, int w)
 using namespace std;
 int solveTab(vector<int> &values, vector<int> &weights, int n, int capacity){
 	vector<vector<int>>dp(n,vector<int>(capacity+1,0));
-	for (int w = weights[0]; w<= capacity; w++){
+	for (int w = weights[0]; w<= capacity; w++){//esase vo object remove ho gaye jinaki capacity knapsack se jyada hai.
 		if(weights[0]<=capacity){
 			dp[0][w] = values[0];
 		}else{

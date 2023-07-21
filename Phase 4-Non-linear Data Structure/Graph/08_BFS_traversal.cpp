@@ -4,17 +4,19 @@ using namespace std;
 //s3: perform BFS traversal
 void bfs(unordered_map<int,set<int>>&adj,unordered_map<int,bool>&visited,
             vector<int>&ans,int node){
+                //initialize a queue for the tracking node
                 queue<int>q;
                 q.push(node) ;
+                //marking first node is visited true.
                 visited[node] = true;
                 while(!q.empty()){
                     int front = q.front();
                     q.pop();
-                    ans.push_back(front);
-                    for(auto i: adj[front]){
+                    ans.push_back(front);//pushing first node into answer vector
+                    for(auto i: adj[front]){//traversing the neighbouring node.
                         if(!visited[i]){
                             q.push(i);
-                            visited[i] = true;
+                            visited[i] = true;//if not visited mark as visited
                         }
                     }
                 }       
@@ -35,6 +37,7 @@ vector<int> BFS(int vertex, vector<pair<int, int>> edges)
     unordered_map<int,bool>visited;
     vector<int>ans;
     //s2: traverse all the component of the list
+    //for single componet no need of loop.
     for(int i = 0; i<vertex; i++){
         if(!visited[i]){
             bfs(adj,visited,ans,i);

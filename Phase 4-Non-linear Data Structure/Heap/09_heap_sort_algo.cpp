@@ -22,9 +22,9 @@ void heapify(int *arr, int size, int i){
 }
 void heapSort(int arr[], int size){
     while(size>1){
-        swap(arr[size],arr[1]);
-        size--;
-        heapify(arr,size,1);
+        swap(arr[size],arr[1]);//swapping largest node to last node
+        size--;//remove largest node and store at last place.
+        heapify(arr,size,1);//again convert rest element into max heap.
     }
 
 }
@@ -32,9 +32,9 @@ void heapSort(int arr[], int size){
 int main(){
     int arr[] = {-1,50,80,70,60,90,20,30};
     int size = 7;
-    //
+    //no need to process leaf node because leaf are already sorted.
     for(int i = size/2; i>0; i--){
-        heapify(arr,size,i);
+        heapify(arr,size,i);//convert array to heap 
     }
     heapSort(arr,size);
     for(int i = 1; i<=size; i++){

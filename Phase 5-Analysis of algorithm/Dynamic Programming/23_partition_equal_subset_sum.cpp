@@ -10,7 +10,7 @@ using namespace std;
 class Solution{
 public:
     bool solve(int index, int *arr, int N, int target){
-        if(index>=N){
+        if(index>=N){//all element process.
             return 0;
         }
         if(target<0){

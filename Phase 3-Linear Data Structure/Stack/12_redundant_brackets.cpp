@@ -3,11 +3,11 @@ bool findRedundantBrackets(string &s)
     // Write your code here.
     stack<char> st;
     for(int i = 0; i<s.size(); i++){
+        //ignoring lower letters
         char ch = s[i];
         if(ch=='(' || ch=='+' ||ch=='-' ||ch=='*' ||ch=='/'){
             st.push(ch);
         }else{
-            //ignoring lower letters
             if(ch==')'){
                 bool ans = true;
                 while(st.top() != '('){

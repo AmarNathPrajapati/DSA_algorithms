@@ -18,7 +18,7 @@ class Node{
 Node* buildTree(Node *root){
     //recursive approach to build a tree
     
-    cout<<"Enter the value of current node "<<endl;
+    // cout<<"Enter the value of current node "<<endl;
     int rootData;
     cin>>rootData;
     root = new Node(rootData);
@@ -26,11 +26,11 @@ Node* buildTree(Node *root){
     if(root->data==-1){
         return NULL;
     }
-    //taking data for left tree
-    cout<<"Enter the data for left value of "<<root->data<<endl;
+    // taking data for left tree
+    // cout<<"Enter the data for left value of "<<root->data<<endl;
     root->left = buildTree(root->left);
     //taking data for right tree
-    cout<<"Enter the data for right value of "<<root->data<<endl;
+    // cout<<"Enter the data for right value of "<<root->data<<endl;
     root->right = buildTree(root->right);
     return root;
 }
@@ -83,7 +83,7 @@ int main(){
     Node *root = NULL;
     root = buildTree(root);
     levelOrderTraversal(root);
-    cout<<endl;
-    beautifiedLevelOrderTraversal(root);
+    // cout<<endl;
+    // beautifiedLevelOrderTraversal(root);
 return 0;
 }

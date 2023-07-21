@@ -121,8 +121,9 @@ class Solution
             q.pop();
             Node* frontNode = temp.first;
             int hd = temp.second;
-            //if there is already content is available
-            if(topNode.find(hd)==topNode.end()){
+            //if there is no content availabe map the node value with the hd
+            //otherwise update the data.
+            if(topNode.find(hd)==topNode.end()){//if found then false otherwise true, it means if there is already  content then no change.
                 topNode[hd] = frontNode->data;
             }
             if(frontNode->left){

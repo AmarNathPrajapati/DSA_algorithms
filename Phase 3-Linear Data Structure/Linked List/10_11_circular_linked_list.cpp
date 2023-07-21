@@ -33,7 +33,7 @@ void insertNode(Node * &tail, int element , int d){
 void print(Node* &head){
     //never want to change head
     Node *temp = head;
-    cout<<"Printing Circular linked list: ";
+    cout<<"Printing Circular linked list: "; 
     do{
         cout<<temp->data<<" ";
         temp = temp -> next;

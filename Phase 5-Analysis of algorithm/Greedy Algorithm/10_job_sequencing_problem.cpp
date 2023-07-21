@@ -33,24 +33,25 @@ class Solution
     vector<int> JobScheduling(Job arr[], int n) 
     { 
         // your code here
-        sort(arr,arr+n,cmp);
+        sort(arr,arr+n,cmp);//sort the array on the basis of profit
         int maxiDeadline = INT_MIN;
         for(int i = 0; i<n; i++){
             maxiDeadline = max(maxiDeadline,arr[i].dead);
         }
+        //a vector with maximum deadline + 1
         vector<int> schedule(maxiDeadline+1,-1);
         int count = 0;
         int maxProfit = 0;
-        for(int i = 0; i<n ; i++){
+        for(int i = 0; i<n ; i++){//for all jobs
             int cp = arr[i].profit;
             int cpid = arr[i].id;
             int cdead = arr[i].dead;
-            for(int k = cdead; k>0; k--){
-                if(schedule[k] == -1){
+            for(int k = cdead; k>0; k--){//kya us deadline ya usase pahale niptaya ja sakata hai.
+                if(schedule[k] == -1){//if time slot available(usi time pe complete karenge jab need hogi.)
                     count ++;
                     maxProfit += cp;
-                    schedule[k] = cpid;
-                    break;
+                    schedule[k] = cpid;//schedule job (at that time no any other job can schedule)
+                    break;//for next job.
                 }
             }
         }

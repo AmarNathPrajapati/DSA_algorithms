@@ -73,11 +73,11 @@ TreeNode<int> *mergeBST(TreeNode<int> *root1, TreeNode<int> *root2){
     // Write your code here.
     // s1: create two sorted array
     vector<int> v1,v2;
-    inorder(root1,v1);
+    inorder(root1,v1);//we know that inorder traversal of BST always sorted.
     inorder(root2,v2);
     // s2: merge two sorted array
     vector<int> v3 = mergeTwoArray(v1,v2);
-    // s3: create a bst using the sorted array
+    // s3: create a bst using the sorted array using inorder traversal.
     int s = 0;
     int e = v3.size()-1;
     TreeNode<int> * root = inorderToBST(s,e,v3);

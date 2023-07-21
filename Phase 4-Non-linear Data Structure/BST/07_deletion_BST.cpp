@@ -107,11 +107,12 @@ Node * deleteFromBST(Node*root, int val){
         return root;
     }
     if(root->data == val){
-        // 0 child
+        // if the node is the child node.
         if(root->left == NULL && root->right == NULL){
             delete root;
             return NULL;
         }
+        //if node have only one child.
         else if(root->left != NULL && root->right == NULL){
             Node*temp = root->left;
             delete root;
@@ -122,16 +123,17 @@ Node * deleteFromBST(Node*root, int val){
             return temp;
         }else{
             int mini = miniNode(root->right)->data;
-            root->data = mini;
-            root->right = deleteFromBST(root->right,mini);
+            root->data = mini;//can be replaced by either mini or maxi
+            root->right = deleteFromBST(root->right,mini);//if mini attach in right otherwise attach in left direction.
             return root;
         }
     }
+    //search in left and right part.
         else if(root->data>val){
-            root->left = deleteFromBST(root->left,val);
+            root->left = deleteFromBST(root->left,val);//if node is not leaf node then attach the rest node.
             return root;
         }else {
-            root->right = deleteFromBST(root->right,val);
+            root->right = deleteFromBST(root->right,val);//if node is not leaf node then attach the rest node.
             return root;
         }
 }

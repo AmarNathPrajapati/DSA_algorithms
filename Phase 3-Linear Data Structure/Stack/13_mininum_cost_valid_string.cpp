@@ -10,8 +10,8 @@ int findMinimumCost(string str) {
             if(ch=='{'){
                 s.push(ch);
             }else{
-                if( !s.empty() && s.top()=='{'){
-                    s.pop();
+                if( !s.empty() && s.top()=='{'){//help to find the minimum cost
+                    s.pop();//if already in pair remove
                 }//pushing invalid
                 else{
                     s.push(ch);

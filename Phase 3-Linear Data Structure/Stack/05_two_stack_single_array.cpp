@@ -19,7 +19,7 @@ public:
     // Push in stack 1.
     void push1(int num) {
         // Write your code here.
-        if(top2-top1>1){
+        if(top2-top1>1){//top2-top1 describe about space between the array.
             top1++;
             arr[top1] = num;
         }

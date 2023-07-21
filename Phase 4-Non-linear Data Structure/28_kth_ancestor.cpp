@@ -120,18 +120,18 @@ Node* solve(Node *root, int &k, int node){
     }
     Node *leftAns = solve(root->left, k, node);
     Node *rightAns = solve(root->right,k,node);
-    if(leftAns != NULL){
-        k--;
+    if(leftAns != NULL){//required node left ki side me hai.
+        k--;// ancestor was found
         if(k<=0){
             k=INT_MAX;
-            return root;
+            return root;//final k th ancestor was found.
         }
         return leftAns;
     }
-    if(rightAns != NULL){
-        k--;
+    if(rightAns != NULL){//node is present at right ride of the root.
+        k--;// ancestor was found
         if(k<=0){
-            k=INT_MAX;
+            k=INT_MAX;//so that kitana bhi substract kar le again zero par na pahuch paye.
             return root;
         }
         return rightAns;
@@ -142,7 +142,7 @@ int kthAncestor(Node *root, int k, int node)
 {
     // Code here
     Node*ans= solve(root, k , node);
-    if(ans==NULL || ans->data == node){
+    if(ans==NULL || ans->data == node){//means it is root node and there is not any ancestors 
         return -1;
     }else{
         return ans->data;

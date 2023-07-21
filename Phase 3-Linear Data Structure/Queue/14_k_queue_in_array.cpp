@@ -5,7 +5,7 @@ public:
     int *arr;
     int *f;
     int *r;
-    int *next;
+    int *next;//
     int freespot;
     NQueue(int n, int s){
         // Write your code here.
@@ -21,28 +21,28 @@ public:
         for(int i = 0; i<s; i++){
             next[i] = i+1;
         }
-        next[s-1] = -1;
+        next[s-1] = -1;//there is no block free after the last block.
     }
 
     // Enqueues 'X' into the Mth queue. Returns true if it gets pushed into the queue, and false otherwise.
     bool enqueue(int x, int m){
         // Write your code here.
         //find index
-        if(freespot == -1){
-            return false;
+        if(freespot == -1){//checking the overflow
+            return false;//No freeslot available
         }
         int index = freespot;
         //update freespot
         freespot = next[index];
         //first entry
-        if(f[m-1]==-1){
-            f[m-1]=index;
+        if(f[m-1]==-1){//we initialize front and rear with -1, so we have to handle the first entry seperately
+            f[m-1]=index;//front will point the currrent index.
         }else{
-            next[r[m-1]] = index;
+            next[r[m-1]] = index;//to connect the next element with the previous one.
         }
         //update next
-        next[index] = -1;
-        r[m-1] = index;
+        next[index] = -1;//since we are going to push element in that place so the next index will be -1;//not available.
+        r[m-1] = index;//push where rear will point
         arr[index] = x;
         return true;
     }
@@ -58,9 +58,9 @@ public:
         //update front
         f[m-1] = next[index];
         //update next
-        next[index] = freespot;
+        next[index] = freespot;//link by current freespot
         //update freespot
-        freespot = index;
+        freespot = index;//update the freespot
         return arr[index];
     }
 };

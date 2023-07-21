@@ -53,7 +53,7 @@ int stronglyConnectedComponents(int v, vector<vector<int>> &edges)
 		st.pop();
 		if(!visited[top]){
 			count++;
-			revDfs(top,visited,transpose);
+			revDfs(top,visited,transpose);//it means in every revDFS we traverse comple scc
 		}
 	}
 	return count;

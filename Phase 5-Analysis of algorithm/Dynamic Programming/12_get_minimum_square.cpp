@@ -13,7 +13,7 @@ class Solution{
 	    if(n==0){
 	        return 0;
 	    }
-	    int ans = n;//if only using 1
+	    int ans = n;//if only using 1(any number can be represent as sum of square of 1)
 	    for(int i = 1; i*i<n;i++){
 	        int temp = i*i;
 	        ans = min(ans,1+solve(n-temp));

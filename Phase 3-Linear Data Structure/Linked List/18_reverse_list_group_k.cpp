@@ -57,19 +57,19 @@ Node* reveseK(Node* head, int k){
         return head;
     }
     //processing 
-    Node *next = NULL;
+    Node *farward = NULL;
     Node *curr = head;
     Node* prev = NULL;
     int count = 0;
     while(curr!=NULL && count <k){
-        next = curr->next;
+        farward = curr->next;
         curr->next = prev;
         prev = curr;
-        curr = next;
+        curr = farward;
         count++;
     }
-    if(next != NULL){
-        head->next = reveseK(next,k);
+    if(farward != NULL){
+        head->next = reveseK(farward,k);
     }
     return prev;
 }
@@ -100,7 +100,7 @@ int main(){
     insertAtPosition(head,16,9);
     print(head);
     cout<<"Reversing in group: ";
-    head = reveseK(head,2);
+    head = reveseK(head,3);
     print(head);
 return 0;
 }

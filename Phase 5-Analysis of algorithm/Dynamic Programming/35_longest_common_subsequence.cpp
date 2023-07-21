@@ -9,9 +9,9 @@ public:
         }
         int ans = 0;
         if(a[i] == b[j]){
-            ans = 1+solve(a,b,i+1,j+1);
+            ans = 1+solve(a,b,i+1,j+1);//if character matches in both string, increment and move ahead on both string.
         }else{
-            ans = max(solve(a,b,i+1,j),solve(a,b,i,j+1));
+            ans = max(solve(a,b,i+1,j),solve(a,b,i,j+1));// if not match first increment first string and check another and vice-versa.
         }
         return ans;
     }

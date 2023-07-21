@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 	//s3: declare a signum functions
+	//it tell 
 	int signum(int a, int b){
 		if(a==b){
 			return 0;
@@ -16,6 +17,7 @@
 	int &median){
 		switch(signum(maxHeap.size(),minHeap.size())){
 			case 0:
+			//when both left and right have equal number of element and next element get odd postion
 				if(element>median){//after size will be even
 					minHeap.push(element);
 					median = minHeap.top();
@@ -24,6 +26,7 @@
 					median = maxHeap.top();
 				}
 				break;
+			//when next element have even postion.
 			case 1:
 				if(element>median){//maxheap size greater than min
 					minHeap.push(element);

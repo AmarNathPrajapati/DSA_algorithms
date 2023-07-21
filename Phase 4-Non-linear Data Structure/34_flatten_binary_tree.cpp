@@ -106,7 +106,7 @@ class Solution
         //find predessor
         while(curr!=NULL){
             if(curr->left){
-                Node* prev = curr->left;
+                Node* prev = curr->left;//here prev is the predecessor node.
                 while(prev->right){
                     prev = prev->right;
                 }
@@ -114,7 +114,7 @@ class Solution
                 curr->right = curr->left;
                 curr->left = NULL;
             }
-            curr = curr->right;
+            curr = curr->right;//to move current pointer next location.
         }
     }
 };
@@ -136,7 +136,7 @@ int main() {
 		Solution ob;
 		ob.flatten(root);
 		inorder(root);
-
+ 
 
 		cout << "\n";
 	}

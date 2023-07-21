@@ -34,15 +34,16 @@ class Solution
             pair<double,Item>p = {pu,arr[i]};
             v.push_back(p);
         }
+        //sort the items on the basis of their value/wt.
         sort(v.begin(),v.end(),cmp);
         double totalValue = 0;
-        for(int i = 0; i<n; i++){
-            if(v[i].second.weight > W){
+        for(int i = 0; i<n; i++){//for all the items
+            if(v[i].second.weight > W){//if any item's weight have greater than knapsack
                 totalValue += W * v[i].first;
-                W = 0;
+                W = 0;//bag fully occupied
             }else{
                 totalValue += v[i].second.value;
-                W = W - v[i].second.weight;
+                W = W - v[i].second.weight;//inserting complet item in the bag
             }
         }
         return totalValue;

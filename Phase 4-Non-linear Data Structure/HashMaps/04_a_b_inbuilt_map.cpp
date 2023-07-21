@@ -17,13 +17,16 @@ int main(){
         it++;
     }
     // map<string,int>m;
-    // m.insert({"amar",1});
+    // m.insert({"amar",1});    
     // m.insert({"chandan",2});
     // m.insert({"Golu",3});
     map<int,int>m;
     m.insert({0,1});
     m.insert({2,3});
     m.insert({1,2});
+    m.insert({4,2});
+    m.insert({11,2});
+    m.insert({9,2});
     cout<<"printing ordered map"<<endl;
     map<int,int> :: iterator iter = m.begin();
     while(iter!=m.end()){

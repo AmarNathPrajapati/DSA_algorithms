@@ -105,11 +105,11 @@ class Solution {
            return true; 
         }
         
-        if(i>=nodeCount){
+        if(i>=nodeCount){//any number which have index not according to CBT return false.
             return false;
         }
-        bool left = isCBT(root->left,2*i+1,nodeCount);
-        bool right = isCBT(root->right,2*i+2,nodeCount);
+        bool left = isCBT(root->left,2*i+1,nodeCount);//left should have index 2i+1
+        bool right = isCBT(root->right,2*i+2,nodeCount);//right should have index 2i+2
         return (left && right);
     }
     //is given tree follow the max heap property or not
@@ -118,13 +118,13 @@ class Solution {
         if(root->left == NULL && root->right == NULL){
             return true;
         }
-        if(root->right == NULL){
+        if(root->right == NULL){//it check it tree is CBT but not with all leaf node.
             bool ans = root->data > root->left->data;
             return ans;
         }else{
             bool left = isMaxOrder(root->left);
             bool right = isMaxOrder(root->right);
-            return left && right && root->data>root->left->data && root->data >root->right->data;
+            return left && right && root->data>root->left->data && root->data >root->right->data;//basic condition for the max heap.
         }
     }
   public:

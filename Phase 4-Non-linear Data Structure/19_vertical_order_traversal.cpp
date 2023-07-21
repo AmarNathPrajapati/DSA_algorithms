@@ -106,12 +106,18 @@ class Solution
         //Your code here
         //map<horizontal distance, map<level, list of nodes>>
         map<int,map<int,vector<int>>> nodes;
+        //because map store the data in ascending order
+        //start with negative values
         // queue is for pushing content for list of nodes
         queue<pair<Node*,pair<int,int>>> q;
         vector<int> ans;
         if(root==NULL){
             return ans;
         }
+        /*
+        taking hd because map store the data in increaing order
+        and answer will be store in vertical view
+        */
         q.push(make_pair(root,make_pair(0,0)));
         while(!q.empty()){
             pair<Node*,pair<int,int>> temp= q.front();
@@ -121,10 +127,10 @@ class Solution
             int level = temp.second.second;
             nodes[hd][level].push_back(frontNode->data);
             if(frontNode->left){
-                q.push(make_pair(frontNode->left,make_pair(hd-1,level+1)));
+                q.push(make_pair(frontNode->left,make_pair(hd-1,level+1)));//moving toward left decrement the horizontal distance
             }
             if(frontNode->right){
-                q.push(make_pair(frontNode->right,make_pair(hd+1,level+1)));
+                q.push(make_pair(frontNode->right,make_pair(hd+1,level+1)));//moving toward right increment the horizontal distance
             }
         }
         for(auto i: nodes){
