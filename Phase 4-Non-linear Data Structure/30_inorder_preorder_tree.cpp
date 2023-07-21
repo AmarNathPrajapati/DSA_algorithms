@@ -41,7 +41,7 @@ struct Node
 class Solution{
     public:
     void createMapping(int in[],int size, map<int,int> &nodeToIndex){
-        for(int i = 0; i<size; i++){
+        for(int i = 0; i<size; i++){// it is used to find the position of the root node.
             nodeToIndex[in[i]] = i;
         }
     }
@@ -51,9 +51,9 @@ class Solution{
         }
         int element = pre[index++];
         Node *root = new Node(element);
-        int position = nodeToIndex[element];
-        root->left = solve(in,pre,index,inStart,position-1,size,nodeToIndex);
-        root->right= solve(in,pre,index,position+1,inEnd,size,nodeToIndex);
+        int position = nodeToIndex[element];//position of the root node.
+        root->left = solve(in,pre,index,inStart,position-1,size,nodeToIndex);//attach left part.
+        root->right= solve(in,pre,index,position+1,inEnd,size,nodeToIndex);//attach right part.
         return root;
     }
         

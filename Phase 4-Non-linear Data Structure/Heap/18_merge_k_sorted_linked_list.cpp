@@ -47,10 +47,10 @@ Node<int>* mergeKLists(vector<Node<int>*> &listArray)
         }
     }
     //s4: if next possible then insert that insert and link
-    Node<int>* head = NULL;
-    Node<int>* tail = NULL;
+    Node<int>* head = NULL;//creating the new linked list.
+    Node<int>* tail = NULL;// head and tail of the linked list.
     while(minHeap.size()>0){
-        Node<int> *temp = minHeap.top();
+        Node<int> *temp = minHeap.top();//ye jo temp hai.ye each linked list ka head hai.
         minHeap.pop();
         if(head==NULL){
             head = temp;
@@ -59,8 +59,8 @@ Node<int>* mergeKLists(vector<Node<int>*> &listArray)
             tail->next = temp;
             tail = temp;
         }
-        if(temp->next != NULL){
-            minHeap.push(temp->next);
+        if(temp->next != NULL){//if the next element is present in the linked list.
+            minHeap.push(temp->next);//min heap me dalane se minimum wala upper he hogo which help to get sorted array.
         }
     }
     return head;

@@ -11,15 +11,15 @@ public:
         // Write Your Code here
         sort(candies,candies+N);
         int mini = 0;
-        int buy = 0;
+        int buy = 0;//for minimum cost we start from least value
         int freeCandy = N-1;
         while(buy<=freeCandy){
-            mini = mini + candies[buy];
-            buy++;
-            freeCandy = freeCandy-K;
+            mini = mini + candies[buy];//cost for the candy.
+            buy++;//buy one
+            freeCandy = freeCandy-K;//get k free.
         }
         int maxi = 0;
-        buy = N-1;
+        buy = N-1;//for maximum cost we start from most value
         freeCandy = 0;
         while(freeCandy<=buy){
             maxi = maxi + candies[buy];
@@ -34,7 +34,7 @@ public:
 };
 
 //{ Driver Code Starts.
-int main()
+zint main()
 {
     int t;
     cin >> t;

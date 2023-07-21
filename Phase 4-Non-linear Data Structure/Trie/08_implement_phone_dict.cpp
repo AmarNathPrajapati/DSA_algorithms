@@ -39,17 +39,17 @@ class Trie{
             insertUtil(root,word);
         }
         void printSuggestions(TrieNode *curr, vector<string> &temp, string prefix){
-            if(curr->isTerminal){
-                temp.push_back(prefix);
+            if(curr->isTerminal){//a complete word found
+                temp.push_back(prefix);//store into temp variable
             }
+            //kya ename se koi current ka child hai ya nahi.
             for(char ch = 'a'; ch<= 'z'; ch++){
                 TrieNode*next = curr->children[ch-'a'];
-                if(next != NULL){
-                    prefix.push_back(ch);
-                    printSuggestions(next, temp,prefix);
-                    prefix.pop_back();
+                if(next != NULL){//next hai it means there is child so store the child.
+                    prefix.push_back(ch);//ye wala character present hai.
+                    printSuggestions(next, temp,prefix);//finding the next word
+                    prefix.pop_back();//so that prefix value will be same as previous.
                 }
-                
             }
         }
         vector<vector<string>> getSuggestions(string str){
@@ -57,12 +57,15 @@ class Trie{
             vector<vector<string>> output;
             string prefix = "";
             for(int i = 0; i<str.length(); i++){
-                char lastChar = str[i];
-                prefix.push_back(lastChar);
-                TrieNode *curr = prev->children[lastChar-'a'];
+                char ch = str[i];
+                prefix.push_back(ch);
+                //check for the last character(previous ke children me koi last character exist karata hai ya nahi.)
+                TrieNode *curr = prev->children[ch-'a'];
+                //if not found
                 if(curr==NULL){
                     break;
                 }
+                //print  all suggestion 
                 vector<string> temp;
                 printSuggestions(curr,temp,prefix);
                 output.push_back(temp);
@@ -79,5 +82,5 @@ vector<vector<string>> phoneDirectory(vector<string>&contactList, string &queryS
     for(int i = 0; i<contactList.size(); i++){
         t->insertWord(contactList[i]);
     }
-    return t->getSuggestions(queryStr);
+    return t->getSuggestions(queryStr); 
 }

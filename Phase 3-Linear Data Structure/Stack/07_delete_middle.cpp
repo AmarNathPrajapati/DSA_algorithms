@@ -4,6 +4,7 @@ void solve(stack<int> &s, int count, int size){
         s.pop();
         return;
     }
+    //num ko side me rakho.
     int num = s.top();
     s.pop();
     //recursive call

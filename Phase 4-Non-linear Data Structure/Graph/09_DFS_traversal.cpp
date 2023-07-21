@@ -28,7 +28,7 @@ vector<vector<int>> depthFirstSearch(int V, vector<pair<int,int>> &edges)
     unordered_map<int,bool>visited;
     // s3: traverse all the components
     for(int i = 0; i<V; i++){
-        if(!visited[i]){
+        if(!visited[i]){//jo nodes first component me nahi hoga, vahi again dfs start karenga.
             //for various component
             vector<int> component;
             dfs(adj,visited,component,i);

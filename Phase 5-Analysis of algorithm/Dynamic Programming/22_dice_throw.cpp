@@ -29,10 +29,10 @@ class Solution {
         if(target<0){
             return 0;
         }
-        if(dice == 0 && target != 0){
+        if(dice == 0 && target != 0){//dice khatam but target not achieved.
             return 0;
         }
-        if(target == 0 && dice != 0){
+        if(target == 0 && dice != 0){//poori dices ko utilize nahi kar paye.
             return 0;
         }
         if(target == 0 && dice == 0){

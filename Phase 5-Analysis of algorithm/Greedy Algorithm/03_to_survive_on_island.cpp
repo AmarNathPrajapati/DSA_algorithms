@@ -11,16 +11,16 @@ class Solution{
 public:
     int minimumDays(int S, int N, int M){
         // code here
-        int sunday = S/7;
-        int buyDay = S-sunday;
-        int totalfood = S*M;
+        int sunday = S/7;//total number of sunday
+        int buyDay = S-sunday;//total number of day on which we can buy
+        int totalfood = S*M;//total amount of food required to survive
         int ans = 0;
-        if(totalfood % N == 0){
-            ans =  totalfood/N;
+        if(totalfood % N == 0){//if we have exactly food that required
+            ans =  totalfood/N;//return 
         }else{
             ans =  totalfood/N + 1;
         }
-        if(ans<= buyDay){
+        if(ans<= buyDay){//if number of actual buy days less that constraint buy day
             return ans;
         }else{
             return -1;

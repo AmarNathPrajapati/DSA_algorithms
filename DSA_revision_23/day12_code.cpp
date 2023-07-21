@@ -47,3 +47,77 @@
     //     rotateLeft(arr,size,k);
     //     return 0;
     // }
+    
+//sum of the array
+//simple additon method
+        //convert array into number
+        // vector<int>ans;
+        // int size = num.size();
+        //  sum = 0;
+        // for(int i =0;i<size; i++){
+        //     sum = sum*10+num[i];
+        // }
+        // sum = sum + k;
+        // while(sum){
+        //     int digit = sum%10;
+        //     ans.push_back(digit);
+        //     sum = sum/10;
+        // }
+        // reverse(ans.begin(),ans.end());
+        // return ans;
+
+//array method
+    //     class Solution {
+    // public:
+    //     vector<int> addToArrayForm(vector<int>& num, int k) {
+    //         //Array method
+    //         //convert number into array
+    //         vector<int>arr;
+    //         vector<int>ans;
+    //         int size = num.size();
+            
+    //         while(k){
+    //             int digit = k%10;
+    //             arr.push_back(digit);
+    //             k = k/10;
+    //         }
+    //         reverse(arr.begin(),arr.end());
+    //         //we will put two pointer end of vector
+    //         int i = num.size()-1;
+    //         int j = arr.size()-1;
+    //         //there are three case
+    //         //case1:
+    //         int carry = 0;
+    //         int sum = 0;
+    //         while(i>=0 && j>=0){
+    //             sum = num[i] + arr[j] + carry;
+    //             carry = sum/10;
+    //             sum = sum%10;
+    //             ans.push_back(sum);
+    //             i--;
+    //             j--;
+    //         }
+    //         //case2: if num have greater size than arr
+    //         while(i>=0){
+    //             sum = num[i] + carry;
+    //             carry = sum/10;
+    //             sum = sum%10;
+    //             ans.push_back(sum);
+    //             i--;
+    //         }
+    //         //case3: if arr have greater size than num
+    //         while(j>=0){
+    //             sum = arr[j] + carry;
+    //             carry = sum/10;
+    //             sum = sum%10;
+    //             ans.push_back(sum);
+    //             j--;
+    //         }
+    //         if(carry!=0){
+    //             sum = carry;
+    //             ans.push_back(sum);
+    //         }
+    //         reverse(ans.begin(),ans.end());
+    //         return ans;
+    //     }
+    // };

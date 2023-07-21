@@ -20,5 +20,6 @@ int main(){
     Man a;
     cout<<"a.name "<<a.name<<endl; // public property by public mode in public
     cout<<"a.age "<<a.age<<endl;
+    cout<<"a.get_total_salary: "<<a.get_total_property()<<endl;
 return 0;
 }

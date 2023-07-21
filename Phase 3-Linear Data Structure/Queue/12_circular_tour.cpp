@@ -7,17 +7,17 @@ class Solution{
     {
        //Your code here
        int balance = 0;
-       int coverDistance = 0;
+       int deficit = 0;
        int start = 0;
        for(int i = 0; i<n; i++){
-           balance += p[i].petrol-p[i].distance;
+           balance += p[i].petrol-p[i].distance;//unit of balance petrol after covering the distance
            if(balance<0){
-               coverDistance +=balance;
+               deficit +=balance;//total kami for the particular range.
                start = i+1;
-               balance = 0;
+               balance = 0;// start with new place hence balance will be zero.
            }
        }
-       if(balance+coverDistance >=0){
+       if(balance+deficit >=0){
            return start;
        }else{
            return -1;

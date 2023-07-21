@@ -18,7 +18,7 @@ class Programmer: public Person{
 class JSDeveloper : public Programmer{
     public:
         string level;
-        string language = "java";
+        string language = "javaScript";
 };
 int main(){
     JSDeveloper chandan;
@@ -26,5 +26,9 @@ int main(){
     // chandan.language = "JS";
     cout<<"chandan.level "<<chandan.level<<endl;
     cout<<"chandan.language "<<chandan.language<<endl;
+    cout<<"chandan.speakSlogan(): ";
+    chandan.speakSlogan();
+    cout<<"chandan.speakProgrammerSlogan(): ";
+    chandan.speakProgrammerSlogan();
 return 0;
 }

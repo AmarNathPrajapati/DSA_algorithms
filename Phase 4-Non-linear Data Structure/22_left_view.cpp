@@ -130,7 +130,8 @@ void solve(Node*root, vector<int> &ans, int level){
     if(root==NULL){
         return;
     }
-    if(level == ans.size()){
+    if(level == ans.size()){//during right call this condition will not satisfy, hence if left part stored then right part will be ignored
+    //if there only right node not left node then only right part will be stored.
         ans.push_back(root->data);
     }
     solve(root->left,ans,level+1);

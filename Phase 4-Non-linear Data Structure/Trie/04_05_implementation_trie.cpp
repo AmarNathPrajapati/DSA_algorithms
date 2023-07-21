@@ -45,10 +45,10 @@ class Trie{
             }
             int index = word[0]-'a';
             TrieNode *child;
-            if(root->children[index] != NULL){
+            if(root->children[index] != NULL){//if word is present as child move ahead
                 child = root->children[index];
             }else{
-                return false;
+                return false;//if index not null it means word is not present as child.
             }
             return searchUtil(child,word.substr(1));
         }

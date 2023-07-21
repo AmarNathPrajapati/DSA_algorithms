@@ -18,11 +18,11 @@ class Heap{
         arr[size] = val;
         while(index>1){
             int parent = index/2;
-            if(arr[parent]<val){
+            if(arr[parent]<val){//to building max heap if parent value is less then swap with new node
                 swap(arr[parent],arr[size]);
                 index = parent;//updating index to find the next parent
             }else{
-                return;
+                return;//if val is less than parent then no problem.
             }
         }
     }

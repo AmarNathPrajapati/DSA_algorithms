@@ -60,6 +60,7 @@ void reverseListIterative(Node* &head){
     while(curr != NULL){
         forward = curr->next;
         curr->next = prev;
+        //updation of pointer
         prev = curr;
         curr = forward;
     }

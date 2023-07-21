@@ -2,15 +2,15 @@
 //recursive call
 int solve(vector<int>&nums, int n){
     //base case
-    if(n<0){
+    if(n<0){//for all the negaiive index in vector 
         return 0;
     }
     if(n==0){
         return nums[0];
     }
     //recursive call
-    int inc = nums[n]+ solve(nums,n-2);
-    int exc = 0+solve(nums,n-1);
+    int inc = nums[n]+ solve(nums,n-2);//if first include, we can't include next number.
+    int exc = 0+solve(nums,n-1);//if we ignore the first number, then we can include next number.
     return max(inc,exc);
 }
 //recursive call with memoization

@@ -23,7 +23,7 @@ int main(){
     // *ptr = *ptr + 10;//error
     cout<<"const ptr: "<<ptr<<endl;
     cout<<"const*ptr: "<<*ptr<<endl;
-
+    
 
 return 0;
 }

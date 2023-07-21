@@ -47,10 +47,10 @@ class Solution
        if(root->data==n1 || root->data == n2){
            return root;
        }
-       Node *leftAns = lca(root->left, n1, n2);
-       Node *rightAns = lca(root->right, n1, n2);
+       Node *leftAns = lca(root->left, n1, n2);//checking left side have required node
+       Node *rightAns = lca(root->right, n1, n2);//checking right side have required node
        if(leftAns !=NULL && rightAns != NULL){
-           return root;
+           return root;//if both not null 
        }
        if(leftAns !=NULL && rightAns == NULL){
            return leftAns;

@@ -84,9 +84,12 @@ Node *buildTree(string str) {
 
 class Solution {
   public:
+  //it will map the node with parent node and 
+  // it return the target node to  burn.
     Node* createParentMapping(Node*root, int target, map<Node*,Node*> &nodeToParent){
-        nodeToParent[root]==NULL;
+        nodeToParent[root]==NULL;//there is not any parent of root node
         Node*res = NULL;
+        //performing level order traversal
         queue<Node*>q;
         q.push(root);
         while(!q.empty()){
@@ -96,31 +99,32 @@ class Solution {
                 res = front;
             }
             if(front->left){
-                nodeToParent[front->left] = front;
+                nodeToParent[front->left] = front;//map with parent node 
                 q.push(front->left);
             }
             if(front->right){
-                nodeToParent[front->right] = front;
+                nodeToParent[front->right] = front;//map with parent node
                 q.push(front->right);
             }
         }
         return res;
-        
     }
     int burnTree(Node*root, map<Node*,Node*> &nodeToParent){
         map<Node*, bool> visited;
         queue<Node*> q;
+        //performing level order traversal
         q.push(root);
         visited[root] = true;
         int ans = 0;
         while(!q.empty()){
             bool flag = 0;
             int size = q.size();
-            for(int i = 0; i<size; i++){
-                Node *front = q.front();
+            for(int i = 0; i<size; i++){//processing neighboring node
+                Node *front = q.front();//so that neighbouring of all node will be burn and count for simultaneous neighbour burn count as 1.
                 q.pop();
+                //three way to moving of flame
                 if(front->left && !visited[front->left]){
-                    flag = true;
+                    flag = true;//if any addition,flag will be true.
                     q.push(front->left);
                     visited[front->left] = true;
                 }
@@ -136,7 +140,8 @@ class Solution {
                 }
             }
              if(flag==1){
-                ans++;
+                ans++;//it represent time of burning tree.
+                
             }
         }
         return ans;
@@ -145,7 +150,7 @@ class Solution {
     {
         // Your code goes here
         map<Node*,Node*>nodeToParent;
-        Node*targetNode = createParentMapping(root,target,nodeToParent);
+        Node*targetNode = createParentMapping(root,target,nodeToParent);//find the target node.
         int ans = burnTree(targetNode,nodeToParent);
         return ans;
     }
@@ -172,7 +177,7 @@ int main()
 
         cin.ignore();
 
-    }
+    } 
 
 
     return 0;

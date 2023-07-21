@@ -1,4 +1,5 @@
 class Solution {
+    //the logic is same as LCS, in place of another string we will place the reverse of the string.
 public:
     int solveSO(string &a, string &b){
         int l1 = a.length();

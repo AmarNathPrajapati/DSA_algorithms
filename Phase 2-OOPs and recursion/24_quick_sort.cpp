@@ -4,15 +4,15 @@ using namespace std;
 int partition(int arr[],int s, int e){
     //seletct first
     int pivot = arr[s];
-    //find count
+    //find number of element jiski value pivot se kam hai.
     int count = 0;
-    //find position and swap
     for (int i = s; i<e; i++)
     {
         if(arr[i]<pivot){
             count++;
         }
     }
+    //find position and swap
     int p = s + count;
     swap(arr[s],arr[p]);//imp
     //left sort  //right sort

@@ -11,13 +11,13 @@ class SpecialStack {
         // Implement the push() function.
         if(s.empty()){
             s.push(data);
-            mini = data;
+            mini = data;//normal push and update the mini variable
         }else{
-            if(data<mini){
+            if(data<mini){//if comming data is less than mini it means there is new mini is coming.
                 int val = 2*data - mini;
                 s.push(val);
-                mini = data;
-            }else{
+                mini = data;//mini is comming data.
+            }else{//if data is greater than normal push (no need of updation of mini)
                 s.push(data);
             }
         }
@@ -31,11 +31,13 @@ class SpecialStack {
         int curr = s.top();
         s.pop();
         
-        if(curr>mini){
+        if(curr>mini){//agar ham minimum wale ko nahi nikal rahe hai, then no need to update mini.
             return curr;
-        }else{
-            int prevMini =mini;
-            int val = 2*mini - curr;
+        }else{//update mini.
+            int prevMini =mini;//basically this is the minimum element which is going to pop
+            //we have to get next minimum element
+            int val = 2*mini - curr;//calculating previous mini after poping the minimum element.
+            //updating the minimum element
             mini = val;
             return prevMini;
         }

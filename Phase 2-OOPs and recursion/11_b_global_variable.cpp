@@ -7,7 +7,7 @@ void ai(){
     cout<<"i inside ai: "<<i<<endl;
 }
 void bi(){
-    i = 1111;
+    int i = 1111;
     cout<<"i inside bi: "<<i<<endl;
 }
 int main(){

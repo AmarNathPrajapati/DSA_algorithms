@@ -10,14 +10,7 @@ char maxOccuranceCharacter(string s){
 // increment that particular index of character
         arr[index]++;
     }
-    /*
-    debugging
-    for (int i = 0; i < 26; i++)
-    {
-        cout<<arr[i]<<" ";
-    }
-    cout<<endl;
-    */
+   
     int ans = -1, ansIndex = -1;
     for (int i = 0; i < 26; i++)
     {

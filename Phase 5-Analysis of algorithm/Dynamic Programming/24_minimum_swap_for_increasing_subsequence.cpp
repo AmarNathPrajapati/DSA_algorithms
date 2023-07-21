@@ -6,16 +6,17 @@ public:
             return 0;
         }
         int ans = INT_MAX;
-        int p1 = nums1[index-1];
+        int p1 = nums1[index-1];//getting the previous element.
         int p2 = nums2[index-1];
         if(swapped){
             swap(p1,p2);
         }
         //no swap
-        if(p1<nums1[index] && p2<nums2[index]){
-            ans = solve(nums1,nums2,index+1,0);
+        if(p1<nums1[index] && p2<nums2[index]){//if previous index's value less than next then no swap.
+            ans = solve(nums1,nums2,index+1,0);//move ahead.
         }
-        if(p2<nums1[index] && p1<nums2[index]){
+        //if apne next se small nahi hai then check that is it smaller that another array next if yes preform swap.
+        if(p2<nums1[index] && p1<nums2[index]){//perform swap
             ans = min(ans,1+solve(nums1,nums2,index+1,1));
         }
         return ans;

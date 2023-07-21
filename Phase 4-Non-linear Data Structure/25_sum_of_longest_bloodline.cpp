@@ -118,11 +118,11 @@ class Solution
 {
     void solve(Node*root, int sum, int &maxSum, int len, int &maxLen){
         if(root==NULL){
-            if(len>maxLen){
+            if(len>maxLen){//if length of bloodline greater than lenght then update the maximum length and update the answer.
                 maxLen = len;
                 maxSum = sum;
             }
-            else if(len == maxLen){
+            else if(len == maxLen){//if length of bloodline equal then update the answer.
                 maxSum = sum;
             }
             return ;

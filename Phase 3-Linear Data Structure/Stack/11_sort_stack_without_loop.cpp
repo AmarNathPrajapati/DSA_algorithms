@@ -19,6 +19,6 @@ void sortStack(stack<int> &stack)
     int num = stack.top();
     stack.pop();
     //recursive call
-    sortStack(stack);
+    sortStack(stack);//sabko side me rahkho jab tak stack khali na ho jaye.
     sortedInsert(stack,num);
 }

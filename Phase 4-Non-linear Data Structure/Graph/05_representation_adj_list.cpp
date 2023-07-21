@@ -51,3 +51,16 @@ vector < vector < int >> printAdjacency(int n, int m, vector < vector < int >> &
         adj[u].push_back({v,w});
         adj[v].push_back({u,w});
     }
+    // 1 2
+    // 1 3
+    // 1 4
+    // 2 3
+    // 2 5
+//create a adjacency list for undirected graph
+    unordered_map<int, list<int>>adj;
+    for(int i = 0; i<edges.size();i++){
+        int u = edges[i][0];
+        int v = edges[i][1];
+        adj[u].push_back(v);//list me add karate ja rahe hai.(for each unique node)
+        adj[v].push_back(u);
+    }

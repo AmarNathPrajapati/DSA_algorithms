@@ -104,7 +104,6 @@ void buildTreeLOT(Node* &root){
             q.push(temp->right);
         }
     }
-    
 }
 // 1 2 4 -1 -1 5 -1 -1 3 -1 -1
 //Implementing the level order traversal 
@@ -116,7 +115,7 @@ int main(){
     // beautifiedLevelOrderTraversal(root);
     buildTreeLOT(root);
     levelOrderTraversal(root);
-    beautifiedLevelOrderTraversal(root);
+    // beautifiedLevelOrderTraversal(root);
 
 return 0;
 }

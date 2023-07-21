@@ -11,7 +11,7 @@ int main(){
     int **arr = new int*[row];
     //allocating memory to column
 
-    int col[row];
+    int col[row];//array of the different size.
     for (int i = 0; i < row; i++)
     {   cout<<"Enter the size of "<<i+1<<" column"<<endl;
         cin>>col[i];

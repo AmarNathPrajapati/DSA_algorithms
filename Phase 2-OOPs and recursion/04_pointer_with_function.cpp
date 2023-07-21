@@ -12,6 +12,7 @@ void printArray(int arr[],int size){
 }
 void printArrayPtr(int *ptr,int size){
     cout<<"Printing using pointer..."<<endl;
+    cout<<"sizeof(ptr): "<<sizeof(ptr)<<endl;
     for (int i = 0; i < 5; i++)
     {
         cout<<ptr[i]<<" ";

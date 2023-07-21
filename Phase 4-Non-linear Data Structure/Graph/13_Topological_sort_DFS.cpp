@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 void topoSort(int node,vector<bool>&visited,
             stack<int> &s,vector<vector<int>> &adj ){
+                
                 visited[node] = true;
                 for(auto nbr : adj[node]){
                     if(!visited[nbr]){

@@ -12,24 +12,24 @@ void mergeArr(int arr[], int s , int e){
     int k = s;
     for (int i = 0; i < length1; i++)
     {
-        first[i] = arr[k];
+        first[i] = arr[k];//ham main array me se s to mid element ko first wale me copy kar rahe hai.
         k++;
     }
     k = mid + 1;
     for (int i = 0; i < length2; i++)
     {
-        second[i] = arr[k];
+        second[i] = arr[k];//ham main array me se s to mid element ko second wale me copy kar rahe hai.
         k++;
     }
     //merge two sort array
-    int mainIndex = s;
+    int mainIndex = s;//ye main array ka index hai,jismae ham minimum wale ko insert kar rahe hai.
     int i = 0;
     int j = 0;
     while (i<length1 && j<length2)
     {
         if(first[i]<second[j]){
             arr[mainIndex] = first[i];
-            mainIndex++;
+            mainIndex++;//
             i++;
         }else{
             arr[mainIndex] = second[j];
@@ -65,6 +65,7 @@ void mergeSort(int arr[], int s , int e){
     //merge
     mergeArr(arr,s,e);
 }
+
 int main(){
     int arr[5] = {3,4,1,2,5};
     int size = sizeof(arr)/sizeof(int);

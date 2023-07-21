@@ -12,13 +12,13 @@ vector<int> topologicalSort(vector<pair<int,int>>& edges, int N, int M)
 	for(int i = 0; i< edges.size(); i++){
 		int u = edges[i].first;
 		int v = edges[i].second;
-		adj[u].push_back(v);
+		adj[u].push_back(v);//for the dircted graph
 	}
 	//calculating indegree
 	vector<int> indegree(N+1);
 	for(auto i: adj){
 		for(auto j: i.second){
-			indegree[j]++;
+			indegree[j]++;//indegree of child node thru parent node.
 		}
 	}
 	//push 0 indegree element in the queue
@@ -35,7 +35,7 @@ vector<int> topologicalSort(vector<pair<int,int>>& edges, int N, int M)
 		q.pop();
 		ans.push_back(front);
 		//updating the neighbour indegree
-		for(auto nbr: adj[front]){
+		for(auto nbr: adj[front]){//front element ko nikalane ke baad usake sabhi neighbor ke degree kam kar do.
 			indegree[nbr]--;
 			if(indegree[nbr]==0){
 				q.push(nbr);

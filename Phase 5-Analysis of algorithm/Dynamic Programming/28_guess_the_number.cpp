@@ -4,11 +4,11 @@ public:
         if(start>=end){
             return 0;
         }
-        int maxi= INT_MAX;
+        int mini= INT_MAX;
         for(int i = start; i<= end; i++){
-            maxi = min(maxi, i+max(solve(start,i-1),solve(i+1,end)));
+            mini = min(maxi, i+max(solve(start,i-1),solve(i+1,end)));
         }
-        return maxi;
+        return mini;
     }
     //adding memoization
     int solveMem(int start ,int end,vector<vector<int>>&dp){

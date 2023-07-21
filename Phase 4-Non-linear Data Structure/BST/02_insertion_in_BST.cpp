@@ -22,13 +22,11 @@ Node* insertIntoBST(Node* &root, int data){
     //left subtree
     if(data < root->data){
         root->left = insertIntoBST(root->left,data);
-        // cout<<"root->left"<<endl;
+    //right subtree
     }else{
         root->right = insertIntoBST(root->right,data);
-        // cout<<"root->right"<<endl;
     }
     return root;
-    //right subtree
 }
 void takeInput(Node * &root){
     int data;

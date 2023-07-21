@@ -7,13 +7,13 @@ class Solution{
     public:
     long long findMinDiff(vector<long long> a, long long n, long long m){
     //code
-    sort(a.begin(),a.end());
+    sort(a.begin(),a.end());//sabko minimum me hee nipata diya jaye.
     long long int  i = 0; 
-    long long int  j = m-1;
+    long long int  j = m-1;//have to distribute m number of students.
     long long int  mini = INT_MAX;
     while(j<n){
         long long int diff = a[j] - a[i];
-        mini = min(mini , diff);
+        mini = min(mini , diff);//calculate and update the minimum.
         i++;
         j++;
     }   

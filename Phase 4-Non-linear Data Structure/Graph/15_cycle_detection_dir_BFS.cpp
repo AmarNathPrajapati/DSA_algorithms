@@ -25,11 +25,11 @@ int detectCycleInDirectedGraph(int n, vector < pair < int, int >> & edges) {
 		}
 	}
 	//doing BFS
-  int count = 0;
+  	int count = 0;
 	while(!q.empty()){
 		int front = q.front();
 		q.pop();
-    count++;
+    	count++;
 		//updating the neighbour indegree
 		for(auto nbr: adj[front]){
 			indegree[nbr]--;
@@ -40,7 +40,7 @@ int detectCycleInDirectedGraph(int n, vector < pair < int, int >> & edges) {
 	}
 	if(count == n){
     return false;//it means it is direct acyclic graph
-  }else{
-    return true;// otherwise it have cycle
-  }
+  	}else{
+  	  return true;// otherwise it have cycle (if there is cycle then there is no element of indegree zero).
+  	}
 }

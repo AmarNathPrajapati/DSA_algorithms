@@ -143,7 +143,7 @@ public:
         }else{
             traverseRight(root->left, ans);
         }
-        ans.push_back(root->data);
+        ans.push_back(root->data);//it store the data in the reverse order.
     }
     vector <int> boundary(Node *root)
     {
@@ -157,8 +157,8 @@ public:
         //traverse the left subtree
         traverseLeft(root->left,ans);
         //traverse the leaf nodes
-        traverseLeaf(root->left,ans);
-        traverseLeaf(root->right,ans);
+        traverseLeaf(root->left,ans);//it store the all leaf nodes of  left part of root
+        traverseLeaf(root->right,ans);// it stores the all leaf nodes of right part of the root.
         //traverse the right subtree
         traverseRight(root->right,ans);
         return ans;

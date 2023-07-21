@@ -3,7 +3,7 @@ using namespace std;
 //implementing node using the class
 class Node{
     public:
-        int data;
+        int data;//intializing data of node.
         Node* next;
         Node(int d){
             this->data = d;

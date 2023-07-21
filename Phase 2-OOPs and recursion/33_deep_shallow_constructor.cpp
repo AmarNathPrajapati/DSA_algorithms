@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 // change observe karne ke liye same pointer ka hona jaroori hai.
-// sallow copy me pointer address same hota hai.
+// sallow copy me pointer address same hota hai aur ek me change karane se dusra bhi change ho jata hai.(Performed by Default copy constructor)
 // deep copy me we have to create a different pointer for different variable in own custom copy constructor
 class Hero{
 public:

@@ -6,8 +6,8 @@ vector<int> nextSmallerElement(vector<int> &arr, int n)
     vector<int> ans(n);
     for(int i = n-1 ; i>= 0 ; i--){
         int curr = arr[i];
-        while(s.top()>= curr){
-            s.pop();
+        while(s.top()>= curr){//ham toh smallest element khoj rahe hai.
+            s.pop();//so the greater element will remove.
         }
         ans[i] = s.top();
         s.push(curr);
