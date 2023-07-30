@@ -4,13 +4,10 @@ int powNum(int num, int exp){
     int ans = 1;
     while (exp>0)
     {
-        cout<<"loop me"<<endl;
         if(exp&1){
             ans = ans * num;
-            cout<<"a "<<ans<<endl;//2 //not enter //32
         }
         num = num * num;//4 //16
-        cout<<"num "<<num<<endl;
         exp = exp >>1;
     }
     return ans;
