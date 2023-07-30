@@ -9,9 +9,9 @@ int findPeak(vector<int> &v){
     while (s<=e)
     {
         if(v[mid]<v[mid+1]){
-            s = mid +1;
+            s = mid +1;//commig to peak
         }else{
-            e = mid;
+            e = mid;//cross the peak
         }
         mid = s + (e-s)/2;
     }
