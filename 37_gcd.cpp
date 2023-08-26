@@ -52,6 +52,17 @@ int gcdNum(int a, int b){
 //     return a;
 // }
 /****** method 2 *****/
+int fastGCD(int a, int b){
+    int num = max(a,b);
+    int den = min(a,b);
+    int rem = num%den;
+    while(rem != 0){
+        num = den;
+        den = rem;
+        rem = num%den;
+    }
+    return den;
+}
 int main()
 {
     cout << "Enter first number" << endl;
@@ -63,7 +74,8 @@ int main()
     // inbuilt gcd function
     //  int ans = gcd(num1,num2);
     //  cout<<ans<<endl;
-    int ans = gcdNum(num1, num2);
+    // int ans = gcdNum(num1, num2);
+    int ans = fastGCD(num1, num2);
     cout << " GCD of two number is " << ans << endl;
     return 0;
 }
