@@ -14,11 +14,18 @@ void print(Node* &head){
     //never want to change head
     Node *temp = head;
     cout<<"Printing linked list: ";
+    int count = 1;
     while(temp != NULL){
         cout<<temp->data<<" ";
         temp = temp -> next;
+        count++;
     }
-    cout<<endl;
+    // int count = 0;
+    // for(count = 1; temp != NULL; count++){
+    //     temp = temp->next;
+    //     cout<<"count: "<<count<<endl;
+    // }
+    // cout<<endl;
 }
 //insertion at first.
 void insertionAtFirst(Node* &head,int d){//using reference so there is no need to return head.
@@ -55,26 +62,26 @@ int main(){
     Node *n1 = new Node(5);
     Node *head = n1;// head for tracking the linked list.
     Node *tail = n1;//tail make insertion easy at end.
-    print(head);
+    // print(head);
     insertionAtFirst(head,3);
-    print(head);
+    // print(head);
     insertionAtFirst(head,2);
-    print(head);
+    // print(head);
     insertionAtFirst(head,1);
-    print(head);
+    // print(head);
     insertionAtEnd(tail,6);
-    print(head);
+    // print(head);
     insertionAtEnd(tail,9);
     print(head);
-    insertionAtEnd(tail,11);
-    print(head);
-    insertionAtEnd(tail,15);
-    print(head);
-    insertAtPosition(head,12,3);
-    print(head);
-    insertAtPosition(head,14,6);
-    print(head);
-    insertAtPosition(head,16,9);
-    print(head);
+    // insertionAtEnd(tail,11);
+    // print(head);
+    // insertionAtEnd(tail,15);
+    // print(head);
+    // insertAtPosition(head,12,3);
+    // print(head);
+    // insertAtPosition(head,14,6);
+    // print(head);
+    // insertAtPosition(head,16,9);
+    // print(head);
 return 0;
 }

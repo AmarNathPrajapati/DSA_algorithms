@@ -6,7 +6,7 @@ int partition(int arr[],int s, int e){
     int pivot = arr[s];
     //find number of element jiski value pivot se kam hai.
     int count = 0;
-    for (int i = s; i<e; i++)
+    for (int i = s; i<=e; i++)
     {
         if(arr[i]<pivot){
             count++;
