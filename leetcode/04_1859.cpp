@@ -73,7 +73,6 @@ string sortSentence(string s) {
     }
 int main(){
     string s = "is2 sentence4 This1 a3";
-
     string ans = sortSentence(s);
     cout<<"ans: "<<ans;
 return 0;
